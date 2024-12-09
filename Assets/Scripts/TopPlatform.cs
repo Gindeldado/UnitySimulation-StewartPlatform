@@ -44,6 +44,7 @@ public class TopPlatform : MonoBehaviour
 
     public GameObject CallServerObj;
     
+    public TCPConnection tcpScript;
     private Dictionary<string, Vector3> rotPositions = new Dictionary<string, Vector3>
     {
         { "UpperPlatform", new Vector3(-6.8f, 11.17f, 14.15f) },
@@ -94,6 +95,10 @@ public class TopPlatform : MonoBehaviour
             MakeLegRed(0);
 
             MakeLegRed(4);
+        }
+
+        if(Input.GetKey(KeyCode.S)){
+            tcpScript.stopThread = true;
         }
 
         targetPitch = desiredPitch-currentPitch;
